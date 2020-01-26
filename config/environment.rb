@@ -12,6 +12,10 @@ DB = ActiveRecord::Base.establish_connection({
   database: 'db/tvshows.db'
 })
 
+require_all 'lib'
+
 if ENV["ACTIVE_RECORD_ENV"] == "test"
   ActiveRecord::Migration.verbose = false
 end
+
+ActiveRecord::Base.logger = nil
